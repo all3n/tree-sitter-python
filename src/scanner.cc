@@ -92,8 +92,8 @@ struct Scanner {
     size_t i = 0;
 
     size_t delimiter_count = delimiter_stack.size();
-    if (delimiter_count > UINT8_MAX)
-      delimiter_count = UINT8_MAX;
+    if (delimiter_count > std::numeric_limits<uint8_t>::max())
+      delimiter_count = std::numeric_limits<uint8_t>::max();
     buffer[i++] = delimiter_count;
 
     if (delimiter_count > 0) {
